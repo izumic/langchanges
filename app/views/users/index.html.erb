@@ -1,0 +1,29 @@
+    <div class="container">
+      <!-- <%= render 'layouts/flash_messages' %> -->
+
+      <div class="page-header">
+        <h2>Users</h1>
+      </div>
+      
+       <div class="main">
+            <section class="item">
+                <a href="#">
+                  <!-- <img width="164px" src="suitcase.jpg"> -->
+                  <div class="category"><%= render 'users', users: @users %></div>
+                  <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </a>
+              </section>
+ 
+      <!--<%= render 'users', users: @users %>-->
+      
+      <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+      <script>
+        new Masonry('div .main', {
+          itemSelector: '.item',
+          columnWidth: 180,
+          gutter: 4
+        });
+      </script>
+      
+      </div>
+      </div>

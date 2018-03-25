@@ -1,0 +1,30 @@
+<div class="form-wrapper">
+  <h1>ログ イン</h1>
+<form>
+
+<div class="row">
+
+
+    <%= form_for(:session, url: login_path) do |f| %>
+
+      <div class="form-item">
+        <%= f.email_field :email, class: 'form-control' %>
+        <input type="email" name="email" required="required" placeholder="Email Address">
+        
+        </input>
+   
+      </div>
+
+      <div class="form-item">
+        <%= f.label :password, 'Password' %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+
+      <%= f.submit 'Log in', class: 'btn btn-primary btn-block' %>
+    <% end %>
+
+    <p>New user? <%= link_to 'Sign up now!', signup_path %></p>
+    
+    </form>
+  </div>
+</div>
