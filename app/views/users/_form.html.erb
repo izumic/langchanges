@@ -4,14 +4,28 @@
   
   <%= form_for(@user) do |f| %>
   
+  
+  <!-- エラーメッセ -->
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% message.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  
   <%= render 'layouts/error_messages', model: f.object %>
   
       <div class="form-group">
       <label class="col-sm-2 control-label">生年月日</label>
         <div class="col-xs-9 form-inline">
-            <input type="text" class="form-control" name="year" size="4"><label>年</label>
-            <input type="text" class="form-control" name="month" size="2"><label>月</label>
-            <input type="text" class="form-control" name="day" size="2"><label>日</label>
+            <%= number_field_tag :year,  class:'form-control', size:4 %><label>年</label>
+            <%= number_field_tag :month,  class:'form-control', size:2 %><label>月</label></label>
+            <%= number_field_tag :day,  class:'form-control', size:2 %><label>日</label>
         </div>
     </div> 
   
@@ -38,26 +52,20 @@
       </div>
     </div>
     
-        <div class="form-group">
+    <div class="form-group">
       <label class="col-sm-2 control-label">居住地</label>
       <div class="col-sm-8">
-        <input type="text" class="form-control" placeholder="例） 日本" name="residence">
+        <%= f.text_field :residence, class:'form-control', placeholder:"ex) Japan" %>
       </div>
     </div>
     
     <div class="form-group">
       <label class="col-sm-2 control-label">母国語</label>
       <div class="col-sm-4">
-      <select class="form-control" id="study" name="m_lang">
-        <option >select</option>
-        <option value="1">日本語</option>
-        <option value="2">英語</option>
-        <option value="3">フランス語</option>
-        <option value="4">中国語</option>
-      </select>
+        <%= f.select :m_lang, [['日本語', 1], ['英語', 2], ['フランス語', 3], ['中国語', 4]] %>
+      </div>
     </div>
-    </div> 
-    
+
 
     <div class="form-group">
       <label class="col-sm-2 control-label">学習言語</label>

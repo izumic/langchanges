@@ -6,6 +6,13 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :password_digest
       t.string :skype
 
+
+      t.string :age
+      t.string :gender
+      t.string :residence
+      t.string :m_lang
+      t.text :content
+
       t.timestamps
     end
   end

@@ -25,8 +25,13 @@ ActiveRecord::Schema.define(version: 20180326045629) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "skype"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "age"
+    t.string   "gender"
+    t.string   "residence"
+    t.string   "m_lang"
+    t.text     "content",         limit: 65535
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   add_foreign_key "genres", "users"
